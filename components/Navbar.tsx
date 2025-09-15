@@ -50,10 +50,16 @@ export default function Navbar() {
     <nav className="flex h-40 flex-col w-full">
       <div className="flex flex-row items-center justify-between p-4 bg-[#183354]">
         <div className="font-semibold text-white text-lg mr-auto space-x-7 px-44 cursor-pointer">
-          <Link href="./">Forum</Link>
-          <Link href="./">About</Link>
-          <Link href="./">Faq's</Link>
-          <Link href="./">Discover Places</Link>
+          <Link href="./about">About</Link>
+          <Link href="./discover">Discover Places</Link>
+        </div>
+        <div className="flex gap-4 px-4">
+          <Link href="/signup">
+            <button className="bg-white text-[#183354] px-4 py-1 rounded font-semibold hover:bg-gray-200 transition">Sign Up</button>
+          </Link>
+          <Link href="/signin">
+            <button className="bg-white text-[#183354] px-4 py-1 rounded font-semibold hover:bg-gray-200 transition">Sign In</button>
+          </Link>
         </div>
         <div className="space-x-4 flex justify-end items-center text-white text-lg px-44">
           <FaFacebookF className="hover:text-blue-500 cursor-pointer" />
