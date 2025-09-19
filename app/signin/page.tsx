@@ -1,7 +1,7 @@
 "use client";
+
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import Link from "next/link";
 
 export default function SignInPage() {
   const router = useRouter();
@@ -12,44 +12,60 @@ export default function SignInPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    const res = await fetch("/api/signin", {
+    const res = await fetch("/api/auth/signin", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password }),
     });
 
     const data = await res.json();
+
     if (res.ok) {
-      alert("Welcome back!");
-      router.push("/home"); 
+      router.push("/dashboard");
     } else {
-      setError(data.message);
+      setError(data.message || "Something went wrong");
     }
   };
 
   return (
-    <div className="flex justify-center items-center h-screen">
-      <form onSubmit={handleSubmit} className="flex flex-col gap-4 p-6 border rounded w-96">
-        <h1 className="text-2xl font-bold">Sign In</h1>
-        {error && <p className="text-red-500">{error}</p>}
+    <div className="flex justify-center items-center h-screen bg-gray-100">
+      <form
+        onSubmit={handleSubmit}
+        className="bg-white p-8 rounded shadow-md w-full max-w-md"
+      >
+        <h2 className="text-2xl font-bold mb-6">Sign In</h2>
+
+        {error && <p className="text-red-500 mb-4">{error}</p>}
+
         <input
           type="email"
           placeholder="Email"
+          value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="p-2 border rounded"
+          className="w-full p-2 mb-4 border rounded"
+          required
         />
         <input
           type="password"
           placeholder="Password"
+          value={password}
           onChange={(e) => setPassword(e.target.value)}
-          className="p-2 border rounded"
+          className="w-full p-2 mb-4 border rounded"
+          required
         />
-        <button className="bg-green-500 text-white p-2 rounded">Sign In</button>
-        <p className="text-sm text-center">
-          Don&apos;t have an account?{" "}
-          <Link href="/signup" className="text-blue-500 underline">
-            Create one
-          </Link>
+
+        <button
+          type="submit"
+          className="w-full bg-blue-600 text-white p-2 rounded hover:bg-blue-700 transition"
+        >
+          Sign In
+        </button>
+
+        <p className="mt-4 text-sm">
+          Don't have an account?{" "}
+          <a href="/signup" className="text-blue-600 hover:underline">
+            Sign Up
+          </a>
         </p>
       </form>
     </div>
