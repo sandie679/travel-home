@@ -18,6 +18,7 @@ export async function GET(req: NextRequest) {
     }
     return NextResponse.json(user);
   } catch (err) {
+    console.error("Error fetching user in /api/auth/me:", err);
     return NextResponse.json({ message: "Server error" }, { status: 500 });
   }
 }

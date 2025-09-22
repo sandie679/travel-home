@@ -5,6 +5,7 @@ import { Manrope } from "next/font/google";
 import Card from "../components/Card";
 import Carding from "../components/carding";
 import { useRouter } from "next/navigation";
+import Latest from "@/components/Latest";
 
 const manrope = Manrope({ subsets: ["latin"] });
 
@@ -62,6 +63,7 @@ export default function Home() {
           className="object-contain"
         />
       </div>
+      <Latest />
 
       <Carding />
     </section>
