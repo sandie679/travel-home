@@ -2,11 +2,14 @@ import { NextRequest, NextResponse } from "next/server";
 import connect from "@/lib/mongodb";
 import Article from "@/models/article";
 
+type Params = { id: string };
+
 export async function PATCH(
   req: NextRequest,
-  { params }: { params: { id: string } }
-) {
+  { params }: { params: Params }
+): Promise<NextResponse> {
   await connect();
+
   const userId = req.cookies.get("userId")?.value;
   if (!userId)
     return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
@@ -20,14 +23,16 @@ export async function PATCH(
 
   if (!article)
     return NextResponse.json({ message: "Article not found" }, { status: 404 });
+
   return NextResponse.json(article);
 }
 
 export async function DELETE(
   req: NextRequest,
-  { params }: { params: { id: string } }
-) {
+  { params }: { params: Params }
+): Promise<NextResponse> {
   await connect();
+
   const userId = req.cookies.get("userId")?.value;
   if (!userId)
     return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
@@ -36,6 +41,7 @@ export async function DELETE(
     _id: params.id,
     authorId: userId,
   });
+
   if (!article)
     return NextResponse.json({ message: "Article not found" }, { status: 404 });
 
