@@ -12,6 +12,11 @@ const latestSchema = new Schema(
       type: String,
       required: true,
     },
+    content:{
+        type: String,
+        required: true,
+    },
+
     date: {
       type: Date,
       default: Date.now,
@@ -23,9 +28,13 @@ const latestSchema = new Schema(
     
     author: {
       type: Schema.Types.ObjectId,
-      ref: "User",
+      ref: "Admin",
       required: true,
     },
+
+     readTime: { type: String, default: "5 mins" 
+
+     },
   },
   { timestamps: true }
 );
