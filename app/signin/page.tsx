@@ -62,7 +62,7 @@ export default function SignInPage() {
         </button>
 
         <p className="mt-4 text-sm">
-          Don't have an account?{" "}
+          Do not have an account?{" "}
           <a href="/signup" className="text-blue-600 hover:underline">
             Sign Up
           </a>

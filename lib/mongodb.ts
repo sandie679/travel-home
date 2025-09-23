@@ -1,10 +1,11 @@
 import mongoose from "mongoose";
 
 declare global {
-  
-  var mongoose: any;
+  var mongoose: {
+    conn: typeof import("mongoose") | null;
+    promise: Promise<typeof import("mongoose")> | null;
+  };
 }
-
 
 const MONGO_URI = process.env.MONGODB_URL!;
 
