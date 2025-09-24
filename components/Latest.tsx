@@ -19,12 +19,20 @@ interface Post {
 export default function Latest() {
   const [posts, setPosts] = useState<Post[]>([]);
 
-  useEffect(() => {
-    fetch("http://localhost:3000/api/latest")
-      .then((res) => res.json())
-      .then(setPosts)
-      .catch((err) => console.error(err));
-  }, []);
+useEffect(() => {
+  const fetchPosts = async () => {
+    try {
+      const res = await fetch("/api/latest");
+      if (!res.ok) throw new Error("Failed to fetch");
+      const data = await res.json();
+      setPosts(data);
+    } catch (err) {
+      console.error("Error fetching latest posts:", err);
+    }
+  };
+  fetchPosts();
+}, []);
+
 
   const hasPosts = posts.length > 0;
 
@@ -72,7 +80,7 @@ export default function Latest() {
                 </p>
               </div>
             ))}
-            
+
             {posts[2] && (
               <div className="col-start-2 col-end-4 row-start-1 row-end-3">
                 <div className="relative">
@@ -111,7 +119,7 @@ export default function Latest() {
           </div>
         )}
       </div>
-      
+
       <div className="flex flex-col items-center md:items-start">
         <Image
           src="https://res.cloudinary.com/dnnvicccf/image/upload/v1758547870/avatar_img02.png_1_woikyh.png"
