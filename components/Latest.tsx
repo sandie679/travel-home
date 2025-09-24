@@ -3,14 +3,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { FaUser, FaClock, FaCalendarAlt } from "react-icons/fa";
-import {
-  FaFacebookF,
-  FaTwitter,
-  FaInstagram,
-  FaYoutube,
-  FaLinkedinIn,
-  FaPinterest,
-} from "react-icons/fa";
+import { FaFacebookF, FaTwitter, FaInstagram, FaYoutube } from "react-icons/fa";
 
 interface Post {
   _id: string;
@@ -35,7 +28,6 @@ export default function Latest() {
 
   const hasPosts = posts.length > 0;
 
-  
   const formatDate = (date: string) => {
     const d = date ? new Date(date) : new Date();
     return isNaN(d.getTime()) ? new Date().toDateString() : d.toDateString();
@@ -43,7 +35,6 @@ export default function Latest() {
 
   return (
     <section className="grid grid-cols-1 md:grid-cols-3 gap-8 my-12 w-[75%] justify-center mx-auto">
-      
       <div className="md:col-span-2">
         <div className="flex justify-between items-center mb-6">
           <h2 className="text-xl font-bold">Explore Latest Places</h2>
@@ -53,7 +44,6 @@ export default function Latest() {
         </div>
         {hasPosts ? (
           <div className="grid grid-cols-3 grid-rows-2 gap-6">
-            
             {posts.slice(0, 2).map((p, idx) => (
               <div
                 key={p._id}
@@ -101,7 +91,7 @@ export default function Latest() {
                   {posts[2].description}
                 </h3>
                 <p className="text-xs text-gray-500 flex gap-3 mt-2 items-center">
-                  <FaUser /> {posts[2].author?.email || "Admin"}{" "}
+                  <FaUser /> {posts[2].author?.email || "Unknown"}{" "}
                   <FaCalendarAlt /> {formatDate(posts[2].createdAt)} <FaClock />{" "}
                   {posts[2].readTime || "5 mins"}
                 </p>
@@ -121,7 +111,7 @@ export default function Latest() {
           </div>
         )}
       </div>
-      {/* AUTHOR SECTION */}
+      
       <div className="flex flex-col items-center md:items-start">
         <Image
           src="https://res.cloudinary.com/dnnvicccf/image/upload/v1758547870/avatar_img02.png_1_woikyh.png"

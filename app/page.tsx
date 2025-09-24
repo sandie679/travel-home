@@ -4,14 +4,11 @@ import { FaUser, FaClock, FaCalendarAlt } from "react-icons/fa";
 import { Manrope } from "next/font/google";
 import Card from "../components/Card";
 import Carding from "../components/carding";
-import { useRouter } from "next/navigation";
 import Latest from "@/components/Latest";
 
 const manrope = Manrope({ subsets: ["latin"] });
 
 export default function Home() {
-  const router = useRouter();
-
   return (
     <section className="mt-[2px] overflow-x-hidden">
       <div className="relative min-h-[300px] md:min-h-[420px]">

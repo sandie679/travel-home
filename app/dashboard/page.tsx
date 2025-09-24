@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { FiHome, FiPlus, FiSettings } from "react-icons/fi";
+import Image from "next/image";
+import { FiHome, FiPlus } from "react-icons/fi";
 
 interface Article {
   _id: string;
@@ -205,9 +206,11 @@ export default function DashboardPage() {
                 <h3 className="font-bold text-gray-800">{article.title}</h3>
                 <p className="text-gray-600">{article.content}</p>
                 {article.imageUrl && (
-                  <img
+                  <Image
                     src={article.imageUrl}
                     alt="Article"
+                    width={600}
+                    height={400}
                     className="w-full h-full object-cover rounded-lg mt-2"
                   />
                 )}
@@ -282,9 +285,11 @@ export default function DashboardPage() {
                 className="w-full border border-gray-300 p-3 rounded-lg"
               />
               {imagePreview && (
-                <img
+                <Image
                   src={imagePreview}
                   alt="Preview"
+                  width={600}
+                  height={400}
                   className="w-full max-h-60 object-contain rounded-lg mt-2 border border-gray-200 shadow-sm"
                 />
               )}
