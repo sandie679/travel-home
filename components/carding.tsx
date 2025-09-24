@@ -19,7 +19,7 @@ const TrendingPlaces: React.FC = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const res = await fetch("http://localhost:3000/api/explore");
+        const res = await fetch("/api/explore");
         const data = await res.json();
         setPosts(data);
       } catch (error) {

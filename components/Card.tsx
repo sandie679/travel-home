@@ -16,7 +16,7 @@ const PostsGrid: React.FC = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const res = await fetch("http://localhost:3000/api/post");
+        const res = await fetch("/api/post");
         const data = await res.json();
         setPosts(data);
       } catch (error) {
