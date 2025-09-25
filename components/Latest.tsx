@@ -58,7 +58,7 @@ export default function Latest() {
 
   return (
     <section className="grid grid-cols-1 md:grid-cols-3 gap-8 my-12 w-[75%] justify-center mx-auto">
-      
+       
       <div className="md:col-span-2">
         <div className="flex justify-between items-center mb-6">
           <h2 className="text-xl font-bold">Explore Latest Places</h2>

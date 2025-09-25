@@ -63,6 +63,16 @@ export default function Home() {
       <Latest />
 
       <Carding />
+
+       <div className="w-[90%] md:w-[60%] mx-auto flex justify-center h-[200px] mt-7">
+        <Image
+          src="https://res.cloudinary.com/dnnvicccf/image/upload/v1758807548/advertisement09.jpg_1_wlf05h.png"
+          alt="Logo"
+          width={900}
+          height={900}
+          className="object-contain"
+        />
+      </div>
     </section>
   );
 }

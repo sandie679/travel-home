@@ -30,50 +30,54 @@ const TrendingPlaces: React.FC = () => {
   }, []);
 
   return (
-    <section className="w-[90%] mx-auto py-8">
-      <div className="flex justify-between items-center mb-6">
-        <h2 className="text-xl font-bold text-[#1F2B45]">Trending Places</h2>
-        <button className="text-sm text-gray-600 flex items-center gap-1 hover:text-red-500 transition">
-          VIEW ALL <span className="text-red-400">↗</span>
-        </button>
-      </div>
+    <section className="w-full bg-[#E8F1F1] py-8">
+      <div className="w-[76%] mx-auto">
+        <div className="flex justify-between items-center mb-6">
+          <h2 className="text-xl font-bold text-[#1F2B45]">Trending Places</h2>
+          <button className="text-sm text-gray-600 flex items-center gap-1 hover:text-red-500 transition">
+            VIEW ALL <span className="text-red-400">↗</span>
+          </button>
+        </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-        {posts.map((post) => (
-          <div
-            key={post._id}
-            className="relative h-80 rounded-lg overflow-hidden shadow-lg cursor-pointer group"
-          >
-            <Image
-              src={post.imageUrl}
-              alt={post.title}
-              fill
-              className="object-cover transition-transform duration-500 group-hover:scale-105"
-            />
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+          {posts.map((post) => (
+            <div
+              key={post._id}
+              className="relative h-80 rounded-lg overflow-hidden shadow-lg cursor-pointer group"
+            >
+              <Image
+                src={post.imageUrl}
+                alt={post.title}
+                fill
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
+              />
 
-            <div className="absolute bottom-4 uppercase left-4 right-4 text-white z-10">
-              <span className="bg-red-500  text-xs font-medium px-2 py-1 rounded">
-                {post.title}
-              </span>
-              <h3 className="mt-3 font-bold text-lg leading-snug">
-                {post.description}
-              </h3>
-              <div className="flex items-center text-xs mt-2 gap-4 text-gray-200">
-                <span className="flex items-center gap-1">
-                  <FaRegCalendarAlt />
-                  {new Date(post.date).toLocaleDateString("en-GB", {
-                    day: "2-digit",
-                    month: "long",
-                    year: "numeric",
-                  })}
+              <div className="absolute left-0 right-0 bottom-0 h-40 bg-gradient-to-t from-black/90 to-transparent z-0 pointer-events-none" />
+
+              <div className="absolute bottom-4 left-4 right-4 text-white z-10 flex flex-col justify-end h-[70%]">
+                <span className="bg-[#F4796C] text-xs font-medium px-2 py-1 rounded min-h-[32px] flex items-center uppercase w-fit">
+                  {post.title}
                 </span>
-                <span className="flex items-center gap-1">
-                  <FaRegClock /> {post.readTime}
-                </span>
+                <h3 className="mt-2 font-medium text-[13px] leading-snug text-white opacity-90 line-clamp-2 min-h-[38px]">
+                  {post.description}
+                </h3>
+                <div className="flex items-center text-xs mt-2 gap-4 text-gray-200">
+                  <span className="flex items-center gap-1">
+                    <FaRegCalendarAlt />
+                    {new Date(post.date).toLocaleDateString("en-GB", {
+                      day: "2-digit",
+                      month: "long",
+                      year: "numeric",
+                    })}
+                  </span>
+                  <span className="flex items-center gap-1">
+                    <FaRegClock /> {post.readTime}
+                  </span>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );
