@@ -38,6 +38,18 @@ const TrendingPlaces: React.FC = () => {
             VIEW ALL <span className="text-red-400">↗</span>
           </button>
         </div>
+        <div className="flex items-start w-full mb-6">
+          <div
+            className="relative mr-2"
+            style={{ width: "32px", height: "10px" }}
+          >
+            <span className="absolute left-0 top-0 h-full w-8 bg-red-500 mb-1"></span>
+          </div>
+          <div className="flex flex-col flex-1 gap-1 justify-center">
+            <span className="h-[1px] w-full bg-gray-300 rounded-full"></span>
+            <span className="h-[1px] w-full bg-gray-300 rounded-full"></span>
+          </div>
+        </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
           {posts.map((post) => (
