@@ -127,8 +127,9 @@ export default function DashboardPage() {
   };
 
   return (
-    <div className="min-h-screen flex bg-gray-50">
-      <div className="w-64 bg-white border-r p-6 flex flex-col justify-between">
+    <div className="min-h-screen flex flex-col lg:flex-row bg-gray-50">
+      
+      <div className="w-full lg:w-64 bg-white border-r p-6 flex flex-col justify-between">
         <div>
           <h2 className="text-lg font-bold mb-6 flex items-center gap-2">
             <span className="bg-purple-100 p-2 rounded-full">
@@ -153,22 +154,23 @@ export default function DashboardPage() {
         </div>
       </div>
 
-      <main className="flex-1 p-8">
-        <div className="bg-blue-500 text-white rounded-2xl p-8 mb-6">
-          <h1 className="text-3xl font-bold">Welcome back!</h1>
+  
+      <main className="flex-1 p-4 sm:p-6 lg:p-8">
+        <div className="bg-blue-500 text-white rounded-2xl p-6 sm:p-8 mb-6">
+          <h1 className="text-2xl sm:text-3xl font-bold">Welcome back!</h1>
           <p className="text-white/80">
             Discover, share, and explore with Travel Home.
           </p>
         </div>
 
-        <div className="grid grid-cols-3 gap-6 mb-6">
-          <div className="bg-white rounded-xl shadow p-6 text-center">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
+          <div className="bg-white rounded-xl shadow p-4 sm:p-6 text-center">
             <p className="text-gray-500">Total Posts</p>
-            <h2 className="text-2xl font-bold">{articles.length}</h2>
+            <h2 className="text-xl sm:text-2xl font-bold">{articles.length}</h2>
           </div>
-          <div className="bg-white rounded-xl shadow p-6 text-center">
+          <div className="bg-white rounded-xl shadow p-4 sm:p-6 text-center">
             <p className="text-gray-500">This Month</p>
-            <h2 className="text-2xl font-bold">
+            <h2 className="text-xl sm:text-2xl font-bold">
               {
                 articles.filter(
                   (a) =>
@@ -177,14 +179,14 @@ export default function DashboardPage() {
               }
             </h2>
           </div>
-          <div className="bg-white rounded-xl shadow p-6 flex flex-col items-center justify-center">
+          <div className="bg-white rounded-xl shadow p-4 sm:p-6 flex flex-col items-center justify-center">
             <p className="text-gray-500 mb-2">Quick Action</p>
             <button
               onClick={() => {
                 resetForm();
                 setShowForm(true);
               }}
-              className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-900"
+              className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-900 w-full"
             >
               Create New Post
             </button>
@@ -225,13 +227,13 @@ export default function DashboardPage() {
                       setContent(article.content);
                       setImagePreview(article.imageUrl || null);
                     }}
-                    className="bg-blue-500 text-white px-3 py-1 rounded-lg"
+                    className="bg-blue-500 text-white px-3 py-1 rounded-lg w-full"
                   >
                     Update
                   </button>
                   <button
                     onClick={() => handleDelete(article._id)}
-                    className="bg-red-600 text-white px-3 py-1 rounded-lg hover:bg-red-700"
+                    className="bg-red-600 text-white px-3 py-1 rounded-lg hover:bg-red-700 w-full"
                   >
                     Delete
                   </button>

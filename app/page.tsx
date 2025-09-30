@@ -6,6 +6,7 @@ import Card from "../components/Card";
 import Carding from "../components/carding";
 import Latest from "@/components/Latest";
 import News from "@/components/News";
+import Zaira from "@/components/zaira";
 
 const manrope = Manrope({ subsets: ["latin"] });
 
@@ -75,6 +76,7 @@ export default function Home() {
         />
       </div>
       <News />
+      <Zaira />
 
 
     </section>
