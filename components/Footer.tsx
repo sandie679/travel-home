@@ -80,7 +80,7 @@ export default function Footer() {
       </div>
 
       
-      <div className="absolute left-0 bottom-0 w-full h-10 bg-[#0A1729] opacity-95 z-30 pointer-events-none"></div>
+      
     </footer>
   );
 }

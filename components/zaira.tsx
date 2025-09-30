@@ -35,6 +35,8 @@ export default function Zaira() {
             <Image
               src={post.imageUrl}
               alt="Zaira"
+              width={300}
+              height={300}
               className="w-full h-48 object-cover"
             />
           </div>
