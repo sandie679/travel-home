@@ -15,7 +15,7 @@ export default function About() {
                 "url('https://res.cloudinary.com/dnnvicccf/image/upload/v1759303620/pexels-camerashy-2114206_rlihj0.jpg')",
             }}
           >
-            <div className="absolute inset-0 bg-[#0A1729] opacity-30"></div>
+            <div className="absolute inset-0 bg-[#0A1729] opacity-40"></div>
           </div>
 
           <div className="relative container mx-auto text-center h-full flex flex-col items-center justify-center pt-20 sm:pt-28 md:pt-36 lg:pt-44 py-10">
