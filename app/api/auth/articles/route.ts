@@ -22,7 +22,7 @@ export async function POST(req: NextRequest) {
     title,
     content,
     imageUrl,
-    authorId: userId,
+    author: userId,
   });
   return NextResponse.json(article);
 }
@@ -33,7 +33,7 @@ export async function GET(req: NextRequest) {
   const userId = req.nextUrl.searchParams.get("userId");
   let articles;
   if (userId) {
-    articles = await Article.find({ authorId: userId }).sort({ createdAt: -1 });
+    articles = await Article.find({ author: userId }).sort({ createdAt: -1 });
   } else {
     articles = await Article.find().sort({ createdAt: -1 });
   }

@@ -49,8 +49,9 @@ export default function Navbar() {
         { label: "Home", href: "/" },
         { label: "About Us", href: "/about" },
         { label: "Features", href: "/Features" },
-        { label: "Categories", href: "/categories" },
-        { label: "Contact", href: "/contact" },
+        { label: "Categories", href: "/category" },
+        { label: "Blog posts", href: "/blogs" },
+        { label: "Admin", href: "/admin" },
       ];
 
   return (
@@ -60,7 +61,7 @@ export default function Navbar() {
           {!isDashboard && (
             <>
               <Link href="/about">About</Link>
-              <Link href="/discover">Discover Places</Link>
+              <Link href="/discover"> Places</Link>
             </>
           )}
         </div>
@@ -69,12 +70,12 @@ export default function Navbar() {
           <div className="hidden md:flex gap-4 px-4 items-center">
             <button
               onClick={handleCreatePost}
-              className="bg-blue-500 text-white px-4 py-1 rounded font-semibold hover:bg-green-700 transition"
+              className="bg-blue-500 text-white px-4 py-1 rounded font-semibold hover:bg-green-700 transition w-40"
             >
               Create Post
             </button>
             <Link href="/signup">
-              <button className="bg-white text-[#183354] px-4 py-1 rounded font-semibold hover:bg-gray-200 transition">
+              <button className="bg-white text-[#183354] px-4 py-1 rounded font-semibold hover:bg-gray-200 transition w-40">
                 Sign Up
               </button>
             </Link>
@@ -93,7 +94,7 @@ export default function Navbar() {
         </div>
 
         <button
-          className="md:hidden text-white text-2xl"
+          className="md:hidden text-white text-2xl ml-auto"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
           {mobileMenuOpen ? <FiX /> : <FiMenu />}
@@ -101,7 +102,7 @@ export default function Navbar() {
       </div>
 
       {!isDashboard && (
-        <div className="md:hidden flex flex-col gap-2 px-4 py-3 bg-[#183354]">
+        <div className="md:hidden flex flex-col gap-2 px-4 py-3 bg-[#183354] items-end">
           <button
             onClick={handleCreatePost}
             className="bg-blue-500 text-white px-4 py-2 rounded font-semibold hover:bg-green-700 transition"
